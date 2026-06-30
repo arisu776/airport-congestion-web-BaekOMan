@@ -68,9 +68,9 @@
 }
 
 .status-message--error {
-  color: #dc2626;
-  background: rgba(220, 38, 38, 0.08);
-  border: 1px solid rgba(220, 38, 38, 0.25);
+  color: var(--level-very-high);
+  background: var(--level-very-high-bg);
+  border: 1px solid var(--level-very-high);
   border-radius: 12px;
 }
 

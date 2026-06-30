@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { PassengerCongestionChart } from './components/PassengerCongestionChart'
+import { ThemeToggle } from './components/ThemeToggle'
 import { TimeSlotCard } from './components/TimeSlotCard'
+import { useTheme } from './hooks/useTheme'
 import type { PassengerAnncmtItem, PassengerAnncmtResponse } from './types/passenger'
 import {
   T1_DEPARTURE_ZONES,
@@ -36,6 +38,7 @@ async function fetchIncheonCongestionData(): Promise<PassengerAnncmtItem[]> {
 }
 
 function App() {
+  const { theme, toggleTheme } = useTheme()
   const [items, setItems] = useState<PassengerAnncmtItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -87,11 +90,14 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <p className="app-header__eyebrow">Incheon International Airport</p>
-        <h1>인천공항 승객 혼잡도</h1>
-        <p className="app-header__desc">
-          시간대별 예상 승객 수를 터미널·출입국장별로 확인할 수 있습니다.
-        </p>
+        <div className="app-header__main">
+          <p className="app-header__eyebrow">Incheon International Airport</p>
+          <h1>인천공항 승객 혼잡도</h1>
+          <p className="app-header__desc">
+            시간대별 예상 승객 수를 터미널·출입국장별로 확인할 수 있습니다.
+          </p>
+        </div>
+        <ThemeToggle theme={theme} onToggle={toggleTheme} />
       </header>
 
       {loading && <p className="status-message">데이터를 불러오는 중...</p>}
@@ -124,7 +130,7 @@ function App() {
             </p>
           </div>
 
-          <PassengerCongestionChart key={selectedDate} items={filteredItems} />
+          <PassengerCongestionChart key={`${selectedDate}-${theme}`} items={filteredItems} />
 
           <section className="time-slot-section" aria-label="시간대별 상세 목록">
             <h2 className="time-slot-section__title">시간대별 상세</h2>

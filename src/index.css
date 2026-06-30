@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-theme='light'] {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -19,16 +20,52 @@
   --level-high-bg: rgba(249, 115, 22, 0.14);
   --level-very-high: #ef4444;
   --level-very-high-bg: rgba(239, 68, 68, 0.14);
+  --chart-t1-entry: #6366f1;
+  --chart-t1-departure: #aa3bff;
+  --chart-t2-entry: #22c55e;
+  --chart-t2-departure: #f97316;
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  color-scheme: light;
+}
 
+[data-theme='dark'] {
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+  --bg: #16171d;
+  --border: #2e303a;
+  --code-bg: #1f2028;
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --social-bg: rgba(47, 48, 58, 0.5);
+  --card-bg: #1c1d24;
+  --chip-bg: rgba(47, 48, 58, 0.6);
+  --bar-track: #2e303a;
+  --level-low: #4ade80;
+  --level-low-bg: rgba(74, 222, 128, 0.15);
+  --level-medium: #facc15;
+  --level-medium-bg: rgba(250, 204, 21, 0.15);
+  --level-high: #fb923c;
+  --level-high-bg: rgba(251, 146, 60, 0.15);
+  --level-very-high: #f87171;
+  --level-very-high-bg: rgba(248, 113, 113, 0.15);
+  --chart-t1-entry: #818cf8;
+  --chart-t1-departure: #c084fc;
+  --chart-t2-entry: #4ade80;
+  --chart-t2-departure: #fb923c;
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  color-scheme: dark;
+}
+
+:root {
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -38,29 +75,6 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --card-bg: #1c1d24;
-    --chip-bg: rgba(47, 48, 58, 0.6);
-    --bar-track: #2e303a;
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
   }
 }
 
@@ -78,6 +92,8 @@
 
 body {
   margin: 0;
+  background: var(--bg);
+  color: var(--text);
 }
 
 h1,

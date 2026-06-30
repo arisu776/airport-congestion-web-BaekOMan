@@ -27,10 +27,10 @@ import {
 import './PassengerCongestionChart.css'
 
 const SERIES = [
-  { key: 't1Entry', name: 'T1 입국', color: '#6366f1' },
-  { key: 't1Departure', name: 'T1 출국', color: '#aa3bff' },
-  { key: 't2Entry', name: 'T2 입국', color: '#22c55e' },
-  { key: 't2Departure', name: 'T2 출국', color: '#f97316' },
+  { key: 't1Entry', name: 'T1 입국', color: 'var(--chart-t1-entry)' },
+  { key: 't1Departure', name: 'T1 출국', color: 'var(--chart-t1-departure)' },
+  { key: 't2Entry', name: 'T2 입국', color: 'var(--chart-t2-entry)' },
+  { key: 't2Departure', name: 'T2 출국', color: 'var(--chart-t2-departure)' },
 ] as const
 
 const LEVEL_COLORS: Record<ReturnType<typeof getCongestionLevel>, string> = {
